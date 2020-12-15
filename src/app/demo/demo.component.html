@@ -1,0 +1,49 @@
+<input type="text" [(ngModel)]="title">
+{{ title }}
+
+<input type="text" [(ngModel)]="power">
+{{ power | exponential }}
+
+<div *ngIf="title == 'Sofia'">Me llamo Sofia</div>
+
+<div *ngIf="title == 'Santiago'">Me llamo Santiago</div>
+
+<div *ngIf="title == 'Valentina'">Me llamo Valentina</div>
+
+<div [ngSwitch]="title">
+    <a *ngSwitchCase="'Sofia'">Me llamo Sofia</a>
+    <a *ngSwitchCase="'Santiago'">Me llamo Santiago</a>
+    <a *ngSwitchCase="'Valentina'">Me llamo Valentina</a>
+    <a *ngSwitchDefault>No corresponde a un nombre valido</a>
+</div>
+
+<button (click)="addItem()">Add item</button>
+
+<ul>
+    <li *ngIf="items.length === 0">La lista esta vacia</li>
+    <li *ngFor="let name of items; index as i">
+        {{ name }} {{ i }}
+        <button (click)="deleteItem(i)">Delete</button>
+    </li>
+</ul>
+
+<!--<div *ngFor="let product of products">
+    Como es un array de objetos es distinta la interpolacion
+    {{ product.title }}
+    <br>
+    <img [src]="product.image" [alt]="product.description">
+    <br>
+    {{ product.price }}
+</div>-->
+
+<!-- Esto lo movemos a ProductsComponent
+<div class="product-grid">
+    Este componente reemplaza lo que antes haciamos poniendo todas las propiedades
+    <app-product *ngFor="let product of products" (productClicked)="clickProduct($event)" [product]="product">
+    </app-product>
+</div>-->
+
+<!--Esto no se puede hacer, hay que iterar solo ARRAYS
+<div *ngFor="let obj of objeto">
+    {{ objeto }}
+</div>-->

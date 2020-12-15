@@ -1,0 +1,10 @@
+:host { // Para hacer referencia al componente <app-product>
+    margin: 2px;
+    border:1px solid black;
+    border-radius: 5px;
+    display: block;
+} 
+
+img{
+    max-width: 100%;
+}
